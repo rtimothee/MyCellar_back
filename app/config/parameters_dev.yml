@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: mycellar
+    database_user: root
+    database_password: admin
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: 'roldao.timothee@neuf.fr'
+    mailer_password: 'test'
+    secret: 59b56d1d56930c42bb9f3d898bd80e8e6af62faa

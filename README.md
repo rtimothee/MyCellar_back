@@ -1,2 +1,4 @@
-# MyCellar_back
-API pour Application de gestion d'une cave à vins simple
+mycellar
+========
+
+A Symfony project created on September 28, 2017, 11:09 pm.
