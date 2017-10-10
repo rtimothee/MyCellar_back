@@ -3,15 +3,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use FOS\OAuthServerBundle\Entity\Client as BaseClient;
+
 
 /**
- * User
+ * Client
  *
- * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ORM\Table(name="oauth2_clients")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ClientRepository")
  */
-class User extends BaseUser
+class Client extends BaseClient
 {
     /**
      * @var int
@@ -21,6 +22,8 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+
 
     public function __construct(){
         parent::__construct();
