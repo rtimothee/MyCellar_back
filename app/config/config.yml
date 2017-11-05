@@ -93,10 +93,14 @@ fos_user:
         sender_name: "%mailer_user%"
 
 fos_oauth_server:
-    db_driver: orm       
+    db_driver: orm
     client_class:        AppBundle\Entity\Client
     access_token_class:  AppBundle\Entity\AccessToken
     refresh_token_class: AppBundle\Entity\RefreshToken
     auth_code_class:     AppBundle\Entity\AuthCode
     service:
         user_provider: fos_user.user_provider.username
+
+jms_serializer:
+    metadata:
+        auto_detection: true

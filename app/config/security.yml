@@ -17,6 +17,10 @@ security:
         add_client:                                   # Everyone can access the access token URL.
             pattern: ^/client
             security: false
+        add_user:                                   # Everyone can access the access token URL.
+            pattern: ^/user
+            methods: [POST]
+            security: false
         api:
             pattern: ^/                                # All URLs are protected
             fos_oauth: true                            # OAuth2 protected resource
@@ -28,4 +32,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/, roles: [ IS_AUTHENTICATED_FULLY ] }
