@@ -52,4 +52,19 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+
+    /** 
+     * Format User for serializing
+     * 
+     * @return string 
+     */
+    public function export(){
+        $u = new \stdClass();
+        $u->id = $this->getId();
+        $u->username = $this->getUsername();
+        $u->email = $this->getEmail();
+
+        return $u;
+    }
 }

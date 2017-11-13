@@ -46,8 +46,27 @@ class UserController extends Controller
         $user->setPlainPassword($password);
         $userManager->updateUser($user, true);
 
-        return $jsonResp->getResponse($user);
+        $user_formatted = $user->export();
+        return $jsonResp->getResponse($user_formatted);
     }
+
+
+    /**
+    * @Get("/user/current")
+    **/
+    public function getUserCurrentAction(Request $request){
+
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $jsonResp = $this->get(CustomResponse::class);
+
+        if (!$user) {
+            return $jsonResp->getErrorResponse(Response::HTTP_NOT_FOUND, "User not found");
+        }
+
+        $user_formatted = $user->export();
+        return $jsonResp->getResponse($user_formatted);
+    }
+
 
     /**
     * @Get("/user/{id}")
