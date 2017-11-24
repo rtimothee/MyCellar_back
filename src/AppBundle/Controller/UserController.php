@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use AppBundle\Service\CustomResponse;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Cellar;
 
 
 
@@ -45,6 +46,14 @@ class UserController extends Controller
         $user->setEmail($email);
         $user->setPlainPassword($password);
         $userManager->updateUser($user, true);
+
+        // Create Default Cellar for this user
+        $cellar = new Cellar();
+        $cellar->setName("Cave à vin de ".$username);
+        $cellar->setUser($user);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($cellar);
+        $em->flush();
 
         $user_formatted = $user->export();
         return $jsonResp->getResponse($user_formatted);

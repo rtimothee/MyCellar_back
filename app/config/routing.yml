@@ -14,3 +14,7 @@ fos_oauth_server_authorize:
 users:
     type: rest
     resource: AppBundle\Controller\UserController
+
+cellar:
+    type: rest
+    resource: AppBundle\Controller\CellarController
